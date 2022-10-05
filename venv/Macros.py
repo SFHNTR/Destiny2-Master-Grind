@@ -4,7 +4,6 @@ import random;
 import mouse;
 
 
-
 def drunkenSailor():
     timer = random.uniform(.1, 2)
     print("Time dif: " + str(timer))
@@ -25,8 +24,4 @@ def insaneRecoil():
     mouse.play(recording, speed_factor=2.0, include_clicks=True, include_moves=True, include_wheel=True)
     mouse.right_click()
 
-while(1):
-    insaneRecoil()
-    print("sleeping")
-    time.sleep(5)
 
