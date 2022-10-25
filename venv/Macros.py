@@ -42,3 +42,20 @@ def fatFingered(event):
             testTime = time.time() + timer
         if event.isSet():
             break
+def indecisive(event):
+    timer = random.uniform(15, 30)
+    switchTime = time.time() + timer
+    while(1):
+        if(time.time() > switchTime):
+            weaponSelect = random.choice([1, 2, 3])
+            if (weaponSelect == 1):
+                keyboard.press("1")
+            elif (weaponSelect == 2):
+                keyboard.press("2")
+            elif (weaponSelect == 3):
+                keyboard.press("3")
+
+            timer = random.uniform(15, 30)
+            switchTime = time.time() + timer
+        if event.isSet():
+            break
