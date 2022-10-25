@@ -4,16 +4,18 @@ import random;
 import mouse;
 
 
-def drunkenSailor():
-    timer = random.uniform(.1, 2)
-    print("Time dif: " + str(timer))
-    stop = time.time() + timer
-    print("going left")
-    while(time.time() < stop):
-        keyboard.press("a")
-        time.sleep(.1)
-    print("stopping")
-    keyboard.release("a")
+def drunkenSailor(window):
+    while(1):
+        timer = random.uniform(.1, 2)
+        print("Time dif: " + str(timer))
+        stop = time.time() + timer
+        print("going left")
+        while(time.time() < stop):
+            keyboard.press("a")
+            time.sleep(.1)
+        print("stopping")
+        keyboard.release("a")
+
 
 def insaneRecoil():
     print("waiting")
