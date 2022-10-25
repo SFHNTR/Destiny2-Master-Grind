@@ -98,8 +98,7 @@ def tripping(event):
             break
 
 def hops(event):
-    print("hops starting")
-    timer = random.uniform(1, 2)
+    timer = random.uniform(10, 45)
     hopsTime = time.time() + timer
     while(1):
         if (time.time() > hopsTime):
@@ -107,8 +106,23 @@ def hops(event):
             keyboard.press("space")
             time.sleep(.1)
             keyboard.release("space")
-            timer = random.uniform(1, 2)
+            timer = random.uniform(10, 45)
             hopsTime = time.time() + timer
+
+        if event.isSet():
+            break
+
+def compulsiveReload(event):
+    timer = random.uniform(5, 15)
+    reloadTime = time.time() + timer
+    while (1):
+        if (time.time() > reloadTime):
+            print("reloading")
+            keyboard.press("r")
+            time.sleep(.1)
+            keyboard.release("r")
+            timer = random.uniform(5, 15)
+            reloadTime = time.time() + timer
 
         if event.isSet():
             break

@@ -37,6 +37,10 @@ hopsBool = tk.BooleanVar()
 hopsCheck = tk.Checkbutton(window, text = "Hops", variable=hopsBool, onvalue = True )
 hopsCheck.grid(row = 5, column = 0,)
 
+reloadBool = tk.BooleanVar()
+reloadCheck = tk.Checkbutton(window, text = "Compulsive Reload", variable=reloadBool, onvalue = True )
+reloadCheck.grid(row = 6, column = 0,)
+
 #create macro threads
 drukenEvent = threading.Event()
 drunkenThread = threading.Thread(target=drunkenSailor, args=(drukenEvent,))
@@ -62,6 +66,10 @@ hopsEvent = threading.Event()
 hopsThread = threading.Thread(target=hops, args=(hopsEvent,))
 hopsThread.daemon = True
 
+reloadEvent = threading.Event()
+reloadThread = threading.Thread(target=compulsiveReload, args=(reloadEvent,))
+hopsThread.daemon = True
+
 #Apply Selection Button
 def applyButtonAction():
     if(drunkenBool.get()):
@@ -76,6 +84,8 @@ def applyButtonAction():
         tripThread.start()
     if (hopsBool.get()):
         hopsThread.start()
+    if (reloadBool.get()):
+        reloadThread.start()
 
 def stopButtonAction():
     drukenEvent.set()
@@ -84,6 +94,7 @@ def stopButtonAction():
     dancingEvent.set()
     tripEvent.set()
     hopsEvent.set()
+    reloadEvent.set()
     print("stopped threads")
     time.sleep(1)
     drukenEvent.clear()
@@ -92,6 +103,7 @@ def stopButtonAction():
     dancingEvent.clear()
     tripEvent.clear()
     hopsEvent.clear()
+    reloadEvent.set()
     print("events cleared")
 
 applyButton = tk.Button(window, text="Apply", command= lambda : applyButtonAction())
