@@ -1,7 +1,7 @@
 import keyboard
 import time
 import random
-import mouse
+#import mouse
 
 
 def drunkenSailor():
@@ -18,14 +18,14 @@ def drunkenSailor():
         keyboard.release(selectedInput)
     return
 
-def insaneRecoil():
-    print("waiting")
-    time.sleep(5)
-    print("recording starting")
-    recording = mouse.record(button='right')
-    print("recording stopped, playing")
-    mouse.play(recording, speed_factor=2.0, include_clicks=True, include_moves=True, include_wheel=True)
-    mouse.right_click()
+# def insaneRecoil():
+    #print("waiting")
+    #time.sleep(5)
+    #print("recording starting")
+    #recording = mouse.record(button='right')
+    #print("recording stopped, playing")
+    #mouse.play(recording, speed_factor=2.0, include_clicks=True, include_moves=True, include_wheel=True)
+    #mouse.right_click()
 
 def fatFingered():
     fatTimer = 45
