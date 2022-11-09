@@ -41,7 +41,7 @@ def fatFingered():
             testTime = time.time() + fatTimer
 
 def indecisive():
-    indecisiveTimer = random.uniform(15, 30)
+    indecisiveTimer = random.uniform(5, 15)
     switchTime = time.time() + indecisiveTimer
     while(1):
         if(time.time() > switchTime):
@@ -59,19 +59,24 @@ def indecisive():
                 time.sleep(.1)
                 keyboard.release("3")
 
-            indecisiveTimer = random.uniform(15, 30)
+            indecisiveTimer = random.uniform(5, 15)
             switchTime = time.time() + indecisiveTimer
 
 def randomDancing():
-    dancingTimer = random.uniform(20, 30)
+    print("dance start")
+    dancingTimer = random.uniform(2, 3)
     danceTime = time.time() + dancingTimer
     while(1):
         if (time.time() > danceTime):
+            print("dancing")
             danceSelect = random.choice(["up", "down", "left", "right"])
             keyboard.press(danceSelect)
-            time.sleep(.1)
+            keyboard.read_hotkey(suppress=True)
+            time.sleep(.5)
+            print("keyboard disabled")
+            keyboard.unhook_all()
             keyboard.release(danceSelect)
-            dancingTimer = random.uniform(20, 30)
+            dancingTimer = random.uniform(2, 3)
             danceTime = time.time() + dancingTimer
 
 def tripping():
