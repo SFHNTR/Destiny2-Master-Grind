@@ -74,7 +74,7 @@ def randomDancing():
             keyboard.read_hotkey(suppress=True)
             time.sleep(.5)
             print("keyboard disabled")
-            keyboard.unhook_all()
+            keyboard.unhook_all_hotkeys()
             keyboard.release(danceSelect)
             dancingTimer = random.uniform(2, 3)
             danceTime = time.time() + dancingTimer
